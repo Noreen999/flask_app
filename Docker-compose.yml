@@ -1,0 +1,20 @@
+services:
+  flask_app:
+    build: .
+    ports:
+      - "5000:5000"  # Mapping container's port 5000 to host's port 5000
+    volumes:
+      - .:/usr/src/app  # Mount the current directory inside the container
+    environment:
+      FLASK_ENV: development  # Enable debug mode
+    depends_on:
+      - db  # Ensure database starts before app
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: park_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: noor
+    ports:
+      - "5432:5432"

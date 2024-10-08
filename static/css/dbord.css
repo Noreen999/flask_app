@@ -1,0 +1,9 @@
+.back {
+  background-image: url("../images/car.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  margin-top: 20px;
+}
